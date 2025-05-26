@@ -16,7 +16,7 @@ def main():
         n = p*q
         On = (p-1)*(q-1)
         e = random.randint(2,On-1)
-        while np.gcd(e,On) != 1:
+        while euclides(e,On) != 1:
             e = random.randint(2,On-1)
         d = pow(e, -1,On)
         #Generación de la llaves 
@@ -40,6 +40,8 @@ def main():
         else:
             print("Opción no válida. Por favor, ingresa 1 o 2.")
 
+main() 
+
 def cifrar(M, llave_publica): 
     n, e = llave_publica
     C = pow(M, e, n)
@@ -50,5 +52,12 @@ def descifrar(C,llave_privada):
     M = pow(C,d,n)
     return M 
 
-main() 
+def euclides(a, b): 
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+
+
+
 
