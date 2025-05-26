@@ -13,14 +13,24 @@ def main():
 
     else:
         G = generar_primitivo(P)
+        print(f"El generador primitivo G para P={P} es: {G}")
         print(G)
+        print()
         K_A = calcular_clave_publica(A, P, G)
+        print(f"La clave pública de Alice es: {K_A}")
+        print()
         K_B = calcular_clave_publica(B, P, G)
-        S_A = calcular_secreto(K_B, A, P)
-        S_B = calcular_secreto(K_A, B, P)
+        print(f"La clave pública de Bob es: {B}")
+        print()
 
+        S_A = calcular_secreto(K_B, A, P)
         print(f"El secreto compartido de Alice es: {S_A}")
+        print()
+        S_B = calcular_secreto(K_A, B, P)
         print(f"El secreto compartido de Bob es: {S_B}")
+        print()
+    
+        
 
 
 def generar_primitivo(P):
