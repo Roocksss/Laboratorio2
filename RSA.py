@@ -30,13 +30,13 @@ def main():
         print("¿Deseas cifrar o descifrar un mensaje? (1/2)")
         opcion = input()
         if opcion == '1':
-            mensaje = int(input("Ingresa el mensaje a cifrar: "))
-            mensaje_cifrado = cifrar(mensaje, llave_publica)
-            print("Mensaje cifrado:", mensaje_cifrado)
+            M = int(input("Ingresa el mensaje (número entero) a cifrar: "))
+            C = cifrar(M, llave_publica)
+            print("Mensaje cifrado:", C)
         elif opcion == '2':
-            mensaje_cifrado = int(input("Ingresa el mensaje cifrado a descifrar: "))
-            mensaje_descifrado = descifrar(mensaje_cifrado, llave_privada)
-            print("Mensaje descifrado:", mensaje_descifrado)
+            C = int(input("Ingresa el mensaje (número entero) cifrado a descifrar: "))
+            D = descifrar(C, llave_privada)
+            print("Mensaje descifrado:", D)
         else:
             print("Opción no válida. Por favor, ingresa 1 o 2.")
 
