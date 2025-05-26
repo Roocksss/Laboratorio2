@@ -27,17 +27,17 @@ def generar_primitivo(P):
     for i in range(2, P):
         resultados = []
         for j in range(0, P - 2):
-            r = i ** j % P
+            r = pow(i, j, P)
             resultados.append(r)
         if len(resultados) != len(set(resultados)):
             break
     return i
 
 def calcular_clave_publica(x, P, G):
-    return (G ** x) % P
+    return pow(G, x, P)
 
 def calcular_secreto(clave_publica, x, P):
-    return (clave_publica ** x) % P
+    return pow(clave_publica, x, P)
 
 
 main()
