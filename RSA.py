@@ -27,8 +27,15 @@ def main():
         print("Llave pública: ", llave_publica)
         print("Llave privada: ", llave_privada)
 
-def cifrar(msj, llave_publica): 
+def cifrar(M, llave_publica): 
     n, e = llave_publica
-    msj_cifrado =            
+    C = pow(M, e, n)
+    return C
+
+def descifrar(C,llave_privada):
+    n,d = llave_privada
+    M = pow(C,d,n)
+    return M 
+
 main() 
 
