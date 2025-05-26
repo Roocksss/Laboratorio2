@@ -27,6 +27,19 @@ def main():
         print("Llave pública: ", llave_publica)
         print("Llave privada: ", llave_privada)
 
+        print("¿Deseas cifrar o descifrar un mensaje? (1/2)")
+        opcion = input()
+        if opcion == '1':
+            mensaje = int(input("Ingresa el mensaje a cifrar: "))
+            mensaje_cifrado = cifrar(mensaje, llave_publica)
+            print("Mensaje cifrado:", mensaje_cifrado)
+        elif opcion == '2':
+            mensaje_cifrado = int(input("Ingresa el mensaje cifrado a descifrar: "))
+            mensaje_descifrado = descifrar(mensaje_cifrado, llave_privada)
+            print("Mensaje descifrado:", mensaje_descifrado)
+        else:
+            print("Opción no válida. Por favor, ingresa 1 o 2.")
+
 def cifrar(M, llave_publica): 
     n, e = llave_publica
     C = pow(M, e, n)
