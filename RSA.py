@@ -12,6 +12,10 @@ def main():
         print("Ingresa un número primo válido")
         return
 
+    if p == q: 
+        print("Error: p y q deben ser números primos distintos")
+        return 
+
     print("Perfecto")
 
     n = p * q
@@ -19,10 +23,8 @@ def main():
     On = (p - 1) * (q - 1)
     print("On = ", On) 
 
-    e = random.randint(2, On - 1)
+    e = coprimo(On)
     print("e = ", e)
-    while euclides(e, On) != 1:
-        e = random.randint(2, On - 1)
 
     d = inv_mult(e, On)
     print("d = ", d)
@@ -100,6 +102,30 @@ def expon_mod(a, k, N):
         k >>= 1
     return b
 
+def coprimo(On):
+    i = 0
+    max_i = 1000
+
+    while i < max_i:
+        e = random.randint(2, On-1)
+        if euclides(e, On) == 1:
+            return e 
+        i += 1 
+
+    # Búsqueda secuencial desde un punto aleatorio
+    inicio = random.randint(2, On // 2)
+    for e in range(inicio, On):
+        if euclides(e, On) == 1:
+            return e 
+        i += 1
+
+    # Buscar desde el principio como alternativa 2 
+    for e in range(2, On):
+        if euclides(e, On) == 1: 
+            return e 
+        
+    raise ValueError("No se encontró un coprimo con On")
+        
 main()
 
 
