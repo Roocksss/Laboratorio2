@@ -28,8 +28,6 @@ def main():
     print("Llave pública: ", llave_publica)
     print("Llave privada: ", llave_privada)
 
-    C = None 
-
     while True: 
         print ("\n¿Qué deseas hacer?")
         print("1. Cifrar un mensaje")
@@ -41,9 +39,7 @@ def main():
             C = cifrar(M, llave_publica)
             print("Mensaje cifrado:", C)
         elif opcion == '2':
-            if C is None:
-                print("Primero debes cifrar un mensaje.")
-                continue
+            C = int(input("Ingresa el mensaje cifrado:"))
             D = descifrar(C, llave_privada)
             print("Mensaje descifrado:", D)
         elif opcion == '3':
