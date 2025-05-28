@@ -1,5 +1,6 @@
 '''
-Implementación del algoritmo RSA para el intercambio de claves
+Implementación del algoritmo RSA para el intercambio de claves sin el uso de libererías más allá 
+de las funciones básicas de Python. 
 '''
 import random
 
@@ -25,7 +26,7 @@ def main():
 
     d = inv_mult(e, On)
     print("d = ", d)
-    
+
     if d is None:
         print("No tiene inverso multiplicativo.")
         return
