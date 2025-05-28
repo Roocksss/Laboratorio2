@@ -1,3 +1,6 @@
+'''
+Implementación del algoritmo RSA para el intercambio de claves
+'''
 import random
 
 def main():
@@ -11,13 +14,18 @@ def main():
     print("Perfecto")
 
     n = p * q
+    print("n = ",n)
     On = (p - 1) * (q - 1)
+    print("On = ", On) 
 
     e = random.randint(2, On - 1)
+    print("e = ", e)
     while euclides(e, On) != 1:
         e = random.randint(2, On - 1)
 
     d = inv_mult(e, On)
+    print("d = ", d)
+    
     if d is None:
         print("No tiene inverso multiplicativo.")
         return
